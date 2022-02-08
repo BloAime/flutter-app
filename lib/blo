@@ -1,0 +1,46 @@
+               Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(right: 0,left: 10),
+                      child: Text(
+                        'Femme',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Checkbox(
+                      checkColor: Colors.white,
+                      fillColor: MaterialStateProperty.resolveWith(getColor),
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = value!;
+                        });
+                      },
+                    ),
+                    Expanded(child: Container()),
+                    Container(
+                      padding: EdgeInsets.only(right: 0,left: 10),
+                      child: Text(
+                        'Homme',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Checkbox(
+                      checkColor: Colors.white,
+                      fillColor: MaterialStateProperty.resolveWith(getColor),
+                      value: isChecked1,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked1 = value!;
+                        });
+                      },
+                    ),
+                  ],
+                ),

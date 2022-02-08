@@ -25,26 +25,27 @@ class TextfieldWidget extends StatefulWidget {
 class _TextfieldWidgetState extends State<TextfieldWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:Container(
-        padding: EdgeInsets.all(8),
-       child: Column(
-         children: [
-         TextField(
-           keyboardType: widget.keyboard,
-           obscureText:widget.obscureText,
-           decoration: InputDecoration(
-           hintText: widget.hintText,
-           labelText: widget.labelText,
-           labelStyle: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-           border: OutlineInputBorder(
-           borderRadius: BorderRadius.circular(7)),
-           suffixIcon: widget.icon,
-           prefixIcon: widget.icon1,
-          ),
-         )
-       ]), 
-      ) ,
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 255, 255),
+        borderRadius: BorderRadius.circular(13),
+    ),
+      child: Column(
+           children: [
+           TextField(
+             keyboardType: widget.keyboard,
+             obscureText:widget.obscureText,
+             decoration: InputDecoration(
+             hintText: widget.hintText,
+             labelText: widget.labelText,
+             labelStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w700),
+             border: OutlineInputBorder(
+             borderRadius: BorderRadius.circular(7)),
+             suffixIcon: widget.icon,
+             prefixIcon: widget.icon1,
+            ),
+           )
+         ]),
     );
   }
 }

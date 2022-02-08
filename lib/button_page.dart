@@ -39,9 +39,7 @@ class _buttonWidgetState extends State<buttonWidget> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                 return Registerpage();
-                }));
+                widget.saint();
               },
               child: Text(widget.child,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,),),
             ),

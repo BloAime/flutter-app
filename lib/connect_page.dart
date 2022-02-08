@@ -2,6 +2,7 @@ import 'package:application_exo/text_field_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'button_page.dart';
+import 'register_page.dart';
 
 
 class MyAppe extends StatefulWidget {
@@ -13,7 +14,7 @@ class MyAppe extends StatefulWidget {
 
 class _MyAppeState extends State<MyAppe> {
    double MAX_SIZE = 150;
-  bool _secureText = true;
+   bool _secureText = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,22 +25,21 @@ class _MyAppeState extends State<MyAppe> {
         appBar: AppBar(),
         body: Container(
           child: Container(
-            //color: Colors.blueAccent,
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(top: 6,left: 10,right: 10),
             child: Column(children: [
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                     color: Colors.blue,
                     ),
-                width: 120,
-                height: 120,
+                width: 50,
+                height: 50,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.person,
-                        size: 80,
+                        size: 30,
                       ),
                     ]),
               ),
@@ -80,10 +80,14 @@ class _MyAppeState extends State<MyAppe> {
                     keyboard: TextInputType.text, obscureText:_secureText,
                   )),
               buttonWidget(
-                num2: 332,
+                num2: 350,
                 Color: Colors.blue,
                 saint: () {
-                  //Registerpage();
+                 Navigator.push(context, 
+                 MaterialPageRoute(builder: (context){
+                   return Registerpage();
+                 })
+                 );
                 },
                 child: 'Connexion',
               ),
@@ -93,16 +97,6 @@ class _MyAppeState extends State<MyAppe> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  /* IconButton (
-                      icon: Text("Mot de Passe Oubli "),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return MyAppe();
-                       }));
-                    
-                      },
-                      iconSize: MAX_SIZE,
-                    ), */
                   Container(
                     padding: EdgeInsets.only(right: 10),
                     child: Text(
@@ -122,7 +116,7 @@ class _MyAppeState extends State<MyAppe> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(right: 10),
+                    padding: EdgeInsets.only(right: 20,left: 10),
                     child: Text(
                       'Pas de compte?',
                       style: TextStyle(

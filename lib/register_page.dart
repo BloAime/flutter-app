@@ -3,24 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'button_page.dart';
 import 'connect_page.dart';
-
-
+import 'cupertino_textfield.dart';
+import 'calandar_page.dart';
+import 'login_page.dart';
 class Registerpage extends StatefulWidget {
   Registerpage({Key? key}) : super(key: key);
 
   @override
   State<Registerpage> createState() => _RegisterpageState();
 }
-
 class _RegisterpageState extends State<Registerpage> {
-   double MAX_SIZE = 30;
+   double MAX_SIZE = 20;
    bool _secureText = true;
    bool isChecked = false;
    bool isChecked1 = false;
   @override
   Widget build(BuildContext context) {
     Color getColor(Set<MaterialState> states) {
-      
       const Set<MaterialState> interactiveStates = <MaterialState>{
         MaterialState.pressed,
         MaterialState.hovered,
@@ -29,158 +28,193 @@ class _RegisterpageState extends State<Registerpage> {
       if (states.any(interactiveStates.contains)) {
         return Colors.blue;
       }
-      return Color.fromARGB(255, 111, 54, 244);
+      return Color.fromARGB(255, 250, 250, 250);
     }
     return GestureDetector(
       onTap: () {
-        FocusScope.of(context).requestFocus(FocusNode());
+        FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(235, 255, 255, 255),
-          elevation: 0,
-        ),
-        body: Container(
-          child: Container(
-            //color: Colors.blueAccent,
-            padding: EdgeInsets.only(top: 10,left: 20,right: 20),
-            child: Column(children: [
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(right: 300),
-                      child: IconButton (
-                            icon: Icon(Icons.arrow_back),
-                            onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                           return MyAppe();
-                        }));
-                        },
-                         iconSize: MAX_SIZE,
+        appBar: MyAppBar(),
+        body:Center (
+          child: SingleChildScrollView(
+            child: Container(
+            height: 550,
+            width: MediaQuery.of(context).size.width-30,
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: 0,
+                  child:
+                  Container(
+                    padding:EdgeInsets.only(right: 10,left: 10) ,
+                    height: 500,
+                    width: MediaQuery.of(context).size.width-30,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 23, 78, 85),
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: Column(children: [
+                            SizedBox(height:20),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 241, 198, 6),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Center(child: 
+                            Icon(Icons.person_outlined,color: Colors.white,size: 30,)
+                            ),
+                            ),
+                            SizedBox(height:15),
+                            Text('Creation de Compte',style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white
+                            ),),
+                            SizedBox(height:35),
+                    SizedBox(
+                      height: 59,
+                      child: TextfieldWidget(
+                      hintText: 'Entrez votre Nom et Prenoms',
+                      labelText: 'Nom et Prenoms',
+                      icon1:null,
+                      keyboard: TextInputType.text,
+                      icon: null, obscureText: false,
+                     ),
+                   ),
+                   SizedBox(height:15),
+                   SizedBox(
+                      height: 59,
+                      child: TextfieldWidget(
+                      hintText: 'Entrez votre  Email,',
+                      labelText: 'Adresse E-mail',
+                      icon1: null,
+                      keyboard: TextInputType.text,
+                      icon: null, obscureText: false,
+                     ),
+                   ),
+                      SizedBox(height:15),
+                          SizedBox(
+                    height: 59,
+                    child: TextfieldWidget(
+                      hintText: 'Entrez votre Mot de Passe,',
+                      icon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _secureText = !_secureText;
+                            });
+                          },
+                          icon: Icon(_secureText ? Icons.remove_red_eye: Icons.remove_red_eye),
+                          ),
+                      labelText: 'Mot de passe',
+                      icon1: Icon(
+                        Icons.edit,
+                        size: 40,
                       ),
-                    ),
-                  ],
-                ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                    color: Colors.blue,
-                    ),
-                width: 120,
-                height: 120,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                      keyboard: TextInputType.text, obscureText:_secureText,
+                    )),
+                     SizedBox(height:25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.person,
-                        size: 80,
+                      Container(
+                        padding: EdgeInsets.only(right: 0,left: 10),
+                        child: Text(
+                          'Femme',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
-                    ]),
-              ),
-              Text(
-                'Creation de Compte',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-              ),
-              SizedBox(
-                  height: 75,
-                  child: TextfieldWidget(
-                    hintText: 'Entrez votre Nom et Prenoms',
-                    labelText: 'Nom et Prenoms',
-                    icon1: null,
-                    keyboard: TextInputType.text,
-                    icon: null, obscureText: false,
-                  )),
-                  SizedBox(
-                  height: 75,
-                  child: TextfieldWidget(
-                    hintText: 'Entrez votre Adresse Email',
-                    labelText: 'Adresse Email',
-                    icon1: null,
-                    keyboard: TextInputType.text,
-                    icon: null, obscureText: false,
-                  )),
-              //SizedBox(height: 20,),
-              SizedBox(
-                  height: 75,
-                  child: TextfieldWidget(
-                    hintText: 'Entrez votre Mot de Passe,',
-                    icon: IconButton(
-                        onPressed: () {
+                      Checkbox(
+                        checkColor: Color.fromARGB(255, 36, 40, 243),
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: isChecked,
+                        onChanged: (bool? value) {
                           setState(() {
-                            _secureText = !_secureText;
+                            isChecked = value!;
                           });
                         },
-                        icon: Icon(_secureText ? Icons.remove_red_eye: Icons.remove_red_eye),
+                      ),
+                      Expanded(child: Container()),
+                      Container(
+                        padding: EdgeInsets.only(right: 0,left: 10),
+                        child: Text(
+                          'Homme',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                    labelText: 'Mot de passe',
-                    icon1: Icon(
-                      Icons.security_update,
-                      size: 40,
-                    ),
-                    keyboard: TextInputType.text, obscureText:_secureText,
-                  )),
-              SizedBox(
-                height: 20,
-              ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(right: 0,left: 10),
-                    child: Text(
-                      'Femme',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
                       ),
-                    ),
-                  ),
-                  Checkbox(
-                    checkColor: Colors.white,
-                    fillColor: MaterialStateProperty.resolveWith(getColor),
-                    value: isChecked,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        isChecked = value!;
-                      });
-                    },
-                  ),
-                  Expanded(child: Container()),
-                  Container(
-                    padding: EdgeInsets.only(right: 0,left: 10),
-                    child: Text(
-                      'Homme',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
+                      Checkbox(
+                        checkColor: Color.fromARGB(255, 36, 40, 243),
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: isChecked1,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked1 = value!;
+                          });
+                        },
                       ),
-                    ),
+                    ],
                   ),
-                  Checkbox(
-                    checkColor: Colors.white,
-                    fillColor: MaterialStateProperty.resolveWith(getColor),
-                    value: isChecked1,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        isChecked1 = value!;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              buttonWidget(
-                num2: 332,
-                Color: Colors.blue,
-                saint: () {
-                  //Registerpage();
-                },
-                child: 'Continuer',
-              ),
-            ]),
+                   SizedBox(height:24),
+                    buttonWidget(
+                  num2: 350,
+                  Color: Color.fromARGB(255, 241, 198, 6),
+                  saint: () {
+                   Navigator.push(context, 
+                   MaterialPageRoute(builder: (context){
+                     return FirstScreens();
+                   })
+                   );
+                  },
+                  child: 'Continuer',
+                ),
+                ]),
+               )
+              )
+              ],
+            ),
+        ),
           ),
         ),
       ),
+    );
+  }
+}
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Size get preferredSize => new Size.fromHeight(50);
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back,
+          color: Colors.grey[800],
+          size: 25,
+        ),
+        onPressed: (){
+          Navigator.push(context, 
+          MaterialPageRoute(builder: (context){
+            return LoginPage();
+          })
+          );
+        },
+      ),
+      title: Text('Creer un Compte',
+          style: TextStyle(
+              color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600)),
+      centerTitle: true,
+      backgroundColor: Colors.white,
     );
   }
 }
