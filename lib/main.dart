@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'connect_page.dart';
-import 'cover_page.dart';
+import 'Test/connect_page.dart';
+import 'Pages/cover_page.dart';
 
 void main() {
   runApp(MyApp());

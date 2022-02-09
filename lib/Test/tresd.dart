@@ -1,7 +1,7 @@
-import 'package:application_exo/text_field_page.dart';
+import 'package:application_exo/widget/text_field_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'button_page.dart';
+import '../widget/button_page.dart';
 import 'connect_page.dart';
 
 

@@ -1,9 +1,9 @@
 import 'dart:ui';
-import 'package:application_exo/register_page.dart';
-import 'package:application_exo/tresd.dart';
+import 'package:application_exo/Pages/register_page.dart';
+import 'package:application_exo/autre/tresd.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'connect_page.dart';
+import '../Test/connect_page.dart';
 
 
 class buttonWidget extends StatefulWidget {

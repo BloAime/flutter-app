@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'cover_page.dart';
 import 'calandar_page.dart';
 void main() {
   runApp(
@@ -353,7 +354,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.grey[800],
           size: 20,
         ),
-        onPressed: null,
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+             return MyHomePage();
+          }));
+        },
       ),
       title: Text('Explor',
           style: TextStyle(

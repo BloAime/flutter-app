@@ -1,11 +1,11 @@
-import 'package:application_exo/text_field_page.dart';
+import 'package:application_exo/widget/text_field_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'button_page.dart';
-import 'connect_page.dart';
+import '../widget/button_page.dart';
+import '../Test/connect_page.dart';
 import 'cupertino_textfield.dart';
 import 'calandar_page.dart';
-import 'login_page.dart';
+import '../autre/login_page.dart';
 class Registerpage extends StatefulWidget {
   Registerpage({Key? key}) : super(key: key);
 
@@ -115,7 +115,7 @@ class _RegisterpageState extends State<Registerpage> {
                       ),
                       keyboard: TextInputType.text, obscureText:_secureText,
                     )),
-                     SizedBox(height:25),
+                     SizedBox(height:20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -164,7 +164,7 @@ class _RegisterpageState extends State<Registerpage> {
                       ),
                     ],
                   ),
-                   SizedBox(height:24),
+                   SizedBox(height:7),
                     buttonWidget(
                   num2: 350,
                   Color: Color.fromARGB(255, 241, 198, 6),

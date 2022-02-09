@@ -1,9 +1,11 @@
-import 'package:application_exo/register_page.dart';
-import 'package:application_exo/text_field_page.dart';
+import 'package:application_exo/Pages/register_page.dart';
+import 'package:application_exo/widget/text_field_page.dart';
 import 'package:flutter/material.dart';
 
-import 'button_page.dart';
+import '../widget/button_page.dart';
 import 'cover_page.dart';
+
+
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);

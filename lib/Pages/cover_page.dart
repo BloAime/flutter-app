@@ -1,10 +1,10 @@
 
-import 'package:application_exo/register_page.dart';
+import 'package:application_exo/Pages/register_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'button_page.dart';
-import 'connect_page.dart';
-import 'login_page.dart';
+import '../widget/button_page.dart';
+import '../Test/connect_page.dart';
+import '../autre/login_page.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
